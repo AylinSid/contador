@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e8, #d6eaff, #e8ffd6);
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        #titulo {
+            background-color: #b8c6ff;
+            color: #fff;
+            padding: 25px;
+            margin: 0;
+            font-size: 36px;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 10px #9aaae6;
+        }
+
+        .contenedor {
+            margin-top: 60px;
+        }
+
+        #valor {
+            font-size: 80px;
+            margin: 20px;
+            font-weight: bold;
+            color: #6d6fa7;
+            transition: transform 0.3s ease;
+        }
+
+        .animar {
+            animation: pop 0.35s ease;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            margin: 15px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .pastel1 {
+            background-color: #ffb6c1;
+        }
+
+        /* rosa pastel */
+        .pastel2 {
+            background-color: #b4f2e1;
+        }
+
+        /* verde agua */
+        .pastel3 {
+            background-color: #cdb4ff;
+        }
+
+        /* lila pastel */
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        #nombre {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 100px;
+            font-size: 20px;
+            background-color: #ffe9b1;
+            color: #755f23;
+            border-radius: 50px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+            border: 2px solid #ffd37c;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="titulo">CONTADOR</h1>
+    <div class="contenedor">
+
+        <p id="valor" class="animar">0</p>
+
+        <div class="botones">
+            <button class="btn pastel1" onclick="disminuir()">- 2</button>
+            <button class="btn pastel2" onclick="restablecer()">RESET</button>
+            <button class="btn pastel3" onclick="incrementar()">+ 2</button>
+        </div>
+    </div>
+
+    <footer id="nombre">
+        Diseñado por: <strong>Aylin Perez</strong>
+    </footer>
+
+    <script>
+        let contador = 0;
+        let mostrar = document.getElementById("valor");
+
+        function animar() {
+            mostrar.classList.remove("animar");
+            void mostrar.offsetWidth;
+            mostrar.classList.add("animar");
+        }
+
+        function incrementar() {
+            contador += 2;
+            mostrar.textContent = contador;
+            animar();
+        }
+
+        function disminuir() {
+            contador -= 2;
+            mostrar.textContent = contador;
+            animar();
+        }
+
+        function restablecer() {
+            contador = 0;
+            mostrar.textContent = contador;
+            animar();
+        }
+    </script>
+</body>
+</html>
